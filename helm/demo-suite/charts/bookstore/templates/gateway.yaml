@@ -10,6 +10,7 @@ metadata:
     {{- if .Values.global.tls.enabled }}
     cert-manager.io/cluster-issuer: {{ .Values.global.tls.issuer }}
     {{- end }}
+    external-dns.alpha.kubernetes.io/hostname: bookstore.{{ .Values.global.tls.issuer }}
 spec:
   gatewayClassName: {{ .Values.global.gatewayAPI.className }}
   listeners:
